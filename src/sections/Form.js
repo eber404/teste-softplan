@@ -62,8 +62,7 @@ const SHeading = styled(Heading)`
   font-family: 'Roboto' !important;
   color: ${(props) => props.theme.colors.text};
   font-weight: 400;
-  margin-top: 25px !important;
-  margin-bottom: 15px !important;
+  margin-top: 35px !important;
 `
 
 const SLabel = styled(Label)`
