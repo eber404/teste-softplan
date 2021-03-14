@@ -21,6 +21,7 @@
     "rebass": "^4.0.7",
     "redux": "^4.0.5",
     "reflexbox": "^4.0.6",
+    "styled-breakpoints": "^10.0.0",
     "styled-components": "^5.2.1",
     "styled-system": "^5.1.5",
     "web-vitals": "^1.0.1"

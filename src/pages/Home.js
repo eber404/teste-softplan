@@ -14,15 +14,15 @@ const Home = () => {
   if (loading)
     return (
       <Flex justifyContent="center" alignItems="center">
-        <ClipLoader color="#333" />
+        <ClipLoader color="rebeccapurple" />
       </Flex>
     )
   if (error) return <p>Error :(</p>
 
   return (
     <Gallery>
-      {data.Country.map((country, index) => (
-        <Link
+      {data.Country.map((country) => (
+        <SLink
           to={{
             pathname: `/countries/${country._id}`,
           }}
@@ -36,10 +36,18 @@ const Home = () => {
             region={country.subregion ? country.subregion.name : null}
             population={country.population}
           />
-        </Link>
+        </SLink>
       ))}
     </Gallery>
   )
 }
+
+const SLink = styled(Link)`
+  text-decoration: none;
+
+  &:visited {
+    color: black;
+  }
+`
 
 export default Home

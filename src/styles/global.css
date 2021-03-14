@@ -11,3 +11,7 @@ body {
   box-sizing: border-box;
   background-color: #f7f7f7;
 }
+
+button {
+  outline: none !important;
+}
