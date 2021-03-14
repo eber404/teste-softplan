@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.3.11",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.1.10",
+    "@apollo/react-hooks": "^4.0.0",
+    "babel-plugin-macros": "^3.0.1",
     "graphql": "^15.5.0",
+    "graphql-tag": "^2.11.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-masonry-component": "^6.2.1",
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-spinners": "^0.10.6",
     "rebass": "^4.0.7",
     "redux": "^4.0.5",
     "reflexbox": "^4.0.6",
@@ -42,5 +44,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@apollo/client": "^3.3.11",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.1.10",
+    "babel-plugin-styled-components": "^1.12.0"
   }
 }

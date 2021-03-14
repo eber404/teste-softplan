@@ -1,9 +1,16 @@
-import { Box, Flex } from 'reflexbox'
+import { Flex } from 'reflexbox/styled-components'
 
-const Main = () => {
+const Main = (props) => {
   return (
-    <Flex>
-      <Box height="100%" width="100%" maxWidth="1280px" marginX="35px"></Box>
+    <Flex
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      maxWidth="1280px"
+      marginX="auto"
+      padding="25px"
+    >
+      {props.children}
     </Flex>
   )
 }
