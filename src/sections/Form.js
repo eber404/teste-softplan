@@ -55,6 +55,16 @@ const Form = (props) => {
   )
 }
 
+const SFlex = styled(Flex)`
+  margin-top: ${(props) => (props.show ? '15px !important' : 0)};
+  margin-bottom: ${(props) => (props.show ? '50px !important' : 0)};
+  opacity: ${(props) => (props.show ? 1 : 0)};
+  height: ${(props) => (props.show ? '100%' : 0)};
+  width: 100%;
+  transition: 0.5s ease-in-out;
+  z-index: -1;
+`
+
 const SHeading = styled(Heading)`
   display: flex;
   justify-content: center;
@@ -68,15 +78,6 @@ const SHeading = styled(Heading)`
 const SLabel = styled(Label)`
   font-weight: 700;
   margin-bottom: 2px !important;
-`
-
-const SFlex = styled(Flex)`
-  margin-top: ${(props) => (props.show ? '15px !important' : 0)};
-  margin-bottom: ${(props) => (props.show ? '50px !important' : 0)};
-  opacity: ${(props) => (props.show ? 1 : 0)};
-  height: ${(props) => (props.show ? '100%' : 0)};
-  width: 100%;
-  transition: 0.5s ease-in-out;
 `
 
 const SInput = styled(Input)`

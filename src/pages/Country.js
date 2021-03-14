@@ -140,7 +140,7 @@ const Country = (props) => {
         </Item>
         <Item width="100%">
           <Link to="/">
-            <SButton width="100%" outline>
+            <SButton width="100%" zIndex="2" outline>
               Voltar
             </SButton>
           </Link>
