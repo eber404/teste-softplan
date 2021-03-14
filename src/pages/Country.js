@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ClipLoader } from 'react-spinners'
 import { Flex, Box } from 'reflexbox/styled-components'
-import { Button, Text } from 'rebass'
+import { Text } from 'rebass'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { GET_COUNTRY_BY_ID } from '../graphql/queries/countryQueries'
@@ -10,15 +10,19 @@ import SVGComponent from '../components/SVGComponent'
 import ReactTooltip from 'react-tooltip'
 import NumberFormat from 'react-number-format'
 import { Link } from 'react-router-dom'
-import { up, down } from 'styled-breakpoints'
+import { down } from 'styled-breakpoints'
 import { withTheme } from 'styled-components'
 import { useBreakpoint } from 'styled-breakpoints/react-styled'
+import Form from '../sections/Form'
+import SButton from '../components/Button'
 
 const Country = (props) => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(GET_COUNTRY_BY_ID, {
     variables: { id },
   })
+
+  const [showForm, setShowForm] = useState(false)
 
   const isMobile = useBreakpoint(down('sm'))
 
@@ -121,8 +125,18 @@ const Country = (props) => {
         width="100%"
         maxWidth="480px"
       >
-        <Item width="100%" mt="15px">
-          <SButton width="100%">Editar</SButton>
+        <Item width="100%" mt="15px" flexDirection="column">
+          <SButton width="100%" onClick={() => setShowForm(!showForm)}>
+            Editar
+          </SButton>
+          <Form
+            show={showForm}
+            name={country.name}
+            capital={country.capital}
+            population={country.population}
+            area={country.area}
+            domain={country.topLevelDomains[0].name}
+          />
         </Item>
         <Item width="100%">
           <Link to="/">
@@ -173,15 +187,6 @@ const Item = styled(Box)`
   a {
     width: 100% !important;
   }
-`
-
-const SButton = styled(Button)`
-  border: ${(props) =>
-    props.outline ? '1px solid rebeccapurple !important' : 'none'};
-  background-color: ${(props) =>
-    props.outline ? 'transparent !important' : 'rebeccapurple !important'};
-  color: ${(props) => (props.outline ? 'rebeccapurple !important' : '#fff')};
-  cursor: pointer;
 `
 
 export default withTheme(Country)

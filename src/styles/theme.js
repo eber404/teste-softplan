@@ -1,7 +1,8 @@
 const theme = {
   colors: {
     primary: 'rebeccapurple',
-    text: '#000',
+    text: '#333',
+    subText: '#BFBFBF',
   },
 }
 
