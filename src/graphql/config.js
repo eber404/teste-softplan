@@ -9,4 +9,9 @@ const client = new ApolloClient({
   cache,
 })
 
+cache.writeQuery({
+  data: initialState,
+  query: GET_COUNTRIES,
+})
+
 export default client

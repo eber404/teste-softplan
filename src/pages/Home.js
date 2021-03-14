@@ -42,20 +42,4 @@ const Home = () => {
   )
 }
 
-const ImageBox = styled.div`
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0px 0px 50px #00000012;
-
-  & img {
-    width: 100%;
-    object-fit: cover;
-  }
-`
-
 export default Home
