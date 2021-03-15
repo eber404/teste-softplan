@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Heading } from 'rebass'
 import SButton from '../components/Button'
 import { useState } from 'react'
+import NumberFormat from 'react-number-format'
 
 const Form = (props) => {
   const [name, setName] = useState(props.name)
@@ -33,15 +34,24 @@ const Form = (props) => {
         <SHeading>Números</SHeading>
         <Item>
           <SLabel>População</SLabel>
-          <SInput
+          <SNumberFormat
             value={population}
             onChange={(e) => setPopulation(e.target.value)}
+            displayType="input"
+            thousandSeparator="."
+            decimalSeparator=","
           />
         </Item>
 
         <Item>
           <SLabel>Área</SLabel>
-          <SInput value={area} onChange={(e) => setArea(e.target.value)} />
+          <SNumberFormat
+            value={area}
+            onChange={(e) => setArea(e.target.value)}
+            displayType="input"
+            thousandSeparator="."
+            decimalSeparator=","
+          />
         </Item>
 
         <SHeading>Domínio</SHeading>
@@ -62,7 +72,7 @@ const SFlex = styled(Flex)`
   height: ${(props) => (props.show ? '100%' : 0)};
   width: 100%;
   transition: 0.5s ease-in-out;
-  z-index: -1;
+  z-index: 0;
 `
 
 const SHeading = styled(Heading)`
@@ -84,6 +94,14 @@ const SInput = styled(Input)`
   border-radius: 5px;
   width: 100% !important;
   border: 1px solid #a1a1a1 !important;
+  padding: 10px;
+`
+
+const SNumberFormat = styled(NumberFormat)`
+  border-radius: 5px;
+  width: 100% !important;
+  border: 1px solid #a1a1a1 !important;
+  padding: 10px;
 `
 
 const Item = styled(Box)`

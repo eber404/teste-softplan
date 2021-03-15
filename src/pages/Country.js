@@ -138,9 +138,9 @@ const Country = (props) => {
             domain={country.topLevelDomains[0].name}
           />
         </Item>
-        <Item width="100%">
+        <Item width="100%" zIndex={1}>
           <Link to="/">
-            <SButton width="100%" zIndex="2" outline>
+            <SButton width="100%" outline>
               Voltar
             </SButton>
           </Link>
@@ -183,6 +183,7 @@ const Item = styled(Box)`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  z-index: ${(props) => props.zIndex};
 
   a {
     width: 100% !important;
