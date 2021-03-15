@@ -94,14 +94,18 @@ const SInput = styled(Input)`
   border-radius: 5px;
   width: 100% !important;
   border: 1px solid #a1a1a1 !important;
-  padding: 10px;
+  padding: 8px !important;
 `
 
 const SNumberFormat = styled(NumberFormat)`
+  position: relative;
   border-radius: 5px;
   width: 100% !important;
   border: 1px solid #a1a1a1 !important;
-  padding: 10px;
+  padding: 8px;
+  max-width: calc(480px - 18px) !important;
+  background-color: transparent !important;
+  font-size: 15px;
 `
 
 const Item = styled(Box)`
