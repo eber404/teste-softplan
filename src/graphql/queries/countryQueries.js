@@ -14,9 +14,6 @@ export const GET_COUNTRIES = gql`
       flag {
         svgFile
       }
-      subregion {
-        name
-      }
     }
   }
 `
