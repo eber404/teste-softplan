@@ -4,7 +4,7 @@ import { Flex, Box } from 'reflexbox/styled-components'
 import { Text } from 'rebass'
 import { useParams } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
-import { GET_COUNTRY_BY_ID } from '../graphql/queries/countryQueries'
+import { GET_COUNTRIES } from '../graphql/queries/countryQueries'
 import styled from 'styled-components'
 import SVGComponent from '../components/SVGComponent'
 import ReactTooltip from 'react-tooltip'
@@ -18,9 +18,7 @@ import SButton from '../components/Button'
 
 const Country = (props) => {
   const { id } = useParams()
-  const { loading, error, data } = useQuery(GET_COUNTRY_BY_ID, {
-    variables: { id },
-  })
+  const { loading, error, data } = useQuery(GET_COUNTRIES)
 
   const [showForm, setShowForm] = useState(false)
 
@@ -34,7 +32,7 @@ const Country = (props) => {
     )
   if (error) return <p>Error :(</p>
 
-  const country = data.Country[0]
+  const country = data.Country.find((c) => c._id === id)
 
   return (
     <Flex
@@ -131,6 +129,7 @@ const Country = (props) => {
           </SButton>
           <Form
             show={showForm}
+            id={country._id}
             name={country.name}
             capital={country.capital}
             population={country.population}

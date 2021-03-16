@@ -6,13 +6,17 @@ import { Heading } from 'rebass'
 import SButton from '../components/Button'
 import { useState } from 'react'
 import NumberFormat from 'react-number-format'
+import { useMutation } from '@apollo/client'
+import { UPDATE_COUNTRY } from '../graphql/mutations/countryMutations'
 
 const Form = (props) => {
+  const id = props.id
   const [name, setName] = useState(props.name)
   const [capital, setCapital] = useState(props.capital)
   const [population, setPopulation] = useState(props.population)
   const [area, setArea] = useState(props.area)
-  const [domain, setDomain] = useState(props.domain)
+
+  const [updateCountry] = useMutation(UPDATE_COUNTRY)
 
   return (
     <SFlex show={props.show}>
@@ -54,12 +58,16 @@ const Form = (props) => {
           />
         </Item>
 
-        <SHeading>Domínio</SHeading>
-        <Item>
-          <SLabel>Domínio</SLabel>
-          <SInput value={domain} onChange={(e) => setDomain(e.target.value)} />
-        </Item>
-        <SButton>Salvar</SButton>
+        <SButton
+          type="button"
+          onClick={() =>
+            updateCountry({
+              variables: { id, name, capital, population, area },
+            })
+          }
+        >
+          Salvar
+        </SButton>
       </Box>
     </SFlex>
   )
@@ -117,11 +125,11 @@ const Item = styled(Box)`
 `
 
 Form.prototype = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
   population: PropTypes.number.isRequired,
   area: PropTypes.number.isRequired,
-  dominio: PropTypes.string.isRequired,
 }
 
 export default Form

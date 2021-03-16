@@ -6,6 +6,7 @@
     "@apollo/react-hooks": "^4.0.0",
     "@rebass/forms": "^4.0.6",
     "babel-plugin-macros": "^3.0.1",
+    "gql-tag": "^1.0.1",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.11.0",
     "react": "^17.0.1",
