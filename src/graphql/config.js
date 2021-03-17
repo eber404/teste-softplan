@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import { CountryMutations } from './mutations/countryMutations'
+import { CountryResolvers } from './resolvers/countryResolvers'
 
 const cache = new InMemoryCache()
 
@@ -8,7 +8,7 @@ const client = new ApolloClient({
   cache,
   resolvers: {
     Mutation: {
-      ...CountryMutations,
+      ...CountryResolvers,
     },
   },
 })
