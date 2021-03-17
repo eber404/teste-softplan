@@ -60,10 +60,20 @@ const Country = (props) => {
             justifyContent="flex-start !important"
             flexDirection="column"
           >
-            <Text fontFamily="Roboto" fontSize="20px" fontWeight="700">
+            <Text
+              fontFamily="Roboto"
+              fontSize="20px"
+              fontWeight="700"
+              sx={{ wordWrap: 'break-word', wordBreak: 'break-word' }}
+            >
               {country.name}
             </Text>
-            <Text fontFamily="Roboto" fontSize="14px" fontWeight="400">
+            <Text
+              fontFamily="Roboto"
+              fontSize="14px"
+              fontWeight="400"
+              sx={{ wordWrap: 'break-word', wordBreak: 'break-word' }}
+            >
               {country.capital}
             </Text>
           </Item>

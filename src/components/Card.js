@@ -6,18 +6,28 @@ import { Box } from 'reflexbox/styled-components'
 const Card = ({ name, capital, flag }) => {
   return (
     <SBox>
-      <Box>
-        <ImageBox>
+      <Box flexShrink={0}>
+        <ImageBox flexShrink={0}>
           <img src={flag} alt={name} />
         </ImageBox>
       </Box>
 
       <Box display="flex" flexDirection="column" ml="15px">
         <Box width="100%">
-          <Heading fontFamily="Roboto" fontWeight="400" fontSize="18px">
+          <Heading
+            fontFamily="Roboto"
+            fontWeight="400"
+            fontSize="18px"
+            sx={{ wordWrap: 'break-word', wordBreak: 'break-word' }}
+          >
             {name}
           </Heading>
-          <Text fontFamily="Roboto" fontSize="14px" fontWeight="700">
+          <Text
+            fontFamily="Roboto"
+            fontSize="14px"
+            fontWeight="700"
+            sx={{ wordWrap: 'break-word', wordBreak: 'break-word' }}
+          >
             {capital}
           </Text>
         </Box>
@@ -57,13 +67,7 @@ const ImageBox = styled.div`
 Card.prototype = {
   name: PropTypes.string.isRequired,
   capital: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
   flag: PropTypes.string,
-  region: PropTypes.string,
-}
-
-Card.defaultProps = {
-  flag: `n/a`,
 }
 
 export default Card
