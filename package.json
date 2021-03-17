@@ -31,10 +31,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && start-server",
+    "build": "react-scripts build && node server/index.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start-server": "node server/index.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
