@@ -4,12 +4,12 @@ import Card from '../components/Card'
 import { ClipLoader } from 'react-spinners'
 import { Flex } from 'reflexbox/styled-components'
 import { useQuery } from '@apollo/client'
-import { GET_COUNTRIES } from '../graphql/queries/countryQueries'
+import { GET_HOME_COUNTRIES } from '../graphql/queries/countryQueries'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Home = () => {
-  const { loading, error, data } = useQuery(GET_COUNTRIES)
+  const { loading, error, data } = useQuery(GET_HOME_COUNTRIES)
 
   if (loading)
     return (

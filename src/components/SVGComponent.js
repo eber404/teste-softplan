@@ -34,17 +34,9 @@ const StyledSvg = styled(Svg)`
   right: 0;
   bottom: 0;
   left: 0;
-  & path {
-    fill: ${({ color }) => color};
-  }
-
-  & .a {
-    opacity: 1;
-    fill: ${({ color }) => color};
-  }
 
   circle {
-    fill: ${({ color }) => color};
+    /* fill: ${({ color }) => color}; */
   }
 
   ${color};

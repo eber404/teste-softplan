@@ -1,5 +1,8 @@
 import { gql } from '@apollo/client'
-import { GET_COUNTRIES } from '../queries/countryQueries'
+import {
+  FIND_COUNTRY_BY_ID,
+  GET_HOME_COUNTRIES,
+} from '../queries/countryQueries'
 
 export const UPDATE_COUNTRY = gql`
   mutation UpdateCountry(
@@ -21,28 +24,19 @@ export const UPDATE_COUNTRY = gql`
 
 export const CountryMutations = {
   updateCountry: (_, variables, { cache }) => {
-    const data = cache.readQuery({ query: GET_COUNTRIES })
     const id = variables.id
 
-    console.log('variables', variables)
-    console.log('data', data)
-
-    const updatedCountries = data.Country.map((c) => {
-      if (c._id === id) {
-        const updatedCountry = {
-          ...c,
-          ...variables,
-        }
-
-        return updatedCountry
-      }
-
-      return c
+    const data = cache.readQuery({
+      query: FIND_COUNTRY_BY_ID,
+      variables: { id },
     })
 
+    const updatedCountry = { ...data.Country[0], ...variables }
+
     cache.writeQuery({
-      query: GET_COUNTRIES,
-      data: { Country: updatedCountries },
+      query: FIND_COUNTRY_BY_ID,
+      variables: { id },
+      data: { Country: [updatedCountry] },
     })
 
     return null

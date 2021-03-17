@@ -24,7 +24,11 @@ const Form = (props) => {
         <SHeading mt="0 !important">Informações básicas</SHeading>
         <Item>
           <SLabel>Nome</SLabel>
-          <SInput value={name} onChange={(e) => setName(e.target.value)} />
+          <SInput
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            maxLength="30"
+          />
         </Item>
 
         <Item>
@@ -32,6 +36,7 @@ const Form = (props) => {
           <SInput
             value={capital}
             onChange={(e) => setCapital(e.target.value)}
+            maxLength="30"
           />
         </Item>
 

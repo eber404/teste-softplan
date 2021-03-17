@@ -1,4 +1,4 @@
-import Main from './layouts/Main'
+import Layout from './layouts/'
 import Home from './pages/Home'
 import Country from './pages/Country'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -11,18 +11,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <Main>
+        <Layout>
+          <Router>
+            <Switch>
               <Route path="/countries/:id">
                 <Country />
               </Route>
               <Route exact path="/">
                 <Home />
               </Route>
-            </Main>
-          </Switch>
-        </Router>
+            </Switch>
+          </Router>
+        </Layout>
       </ThemeProvider>
     </ApolloProvider>
   )
