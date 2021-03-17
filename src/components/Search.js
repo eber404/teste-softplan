@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Box } from 'reflexbox'
-import { Input } from '@rebass/forms/styled-components'
-import styled from 'styled-components'
 import { useQuery } from '@apollo/client'
-import { GET_ALL_COUNTRIES } from '../graphql/queries/countryQueries'
+import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import Select from 'react-select'
+import { Box } from 'reflexbox'
+import styled from 'styled-components'
+import { GET_ALL_COUNTRIES } from '../graphql/queries/countryQueries'
 
 const Search = (props) => {
   const [options, setOptions] = useState({
@@ -22,6 +22,8 @@ const Search = (props) => {
     },
   })
 
+  const handleSelect = (id) => props.history.push(`/countries/${id}`)
+
   return (
     <Box
       display="flex"
@@ -34,15 +36,14 @@ const Search = (props) => {
       <Select
         options={options}
         components={{ Input: SInput }}
-        onChange={(e) => (window.location.href = `/countries/${e.value}`)}
-        onBlur={() => console.log('blur')}
+        onChange={(e) => handleSelect(e.value)}
         placeholder="Buscar país"
       />
     </Box>
   )
 }
 
-const SInput = styled(Input)`
+const SInput = styled.input`
   border: unset;
   padding: 0;
 
@@ -52,4 +53,4 @@ const SInput = styled(Input)`
   }
 `
 
-export default Search
+export default withRouter(Search)

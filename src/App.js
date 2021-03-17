@@ -11,18 +11,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Router>
-            <Switch>
+        <Router>
+          <Switch>
+            <Layout>
               <Route path="/countries/:id">
                 <Country />
               </Route>
               <Route exact path="/">
                 <Home />
               </Route>
-            </Switch>
-          </Router>
-        </Layout>
+            </Layout>
+          </Switch>
+        </Router>
       </ThemeProvider>
     </ApolloProvider>
   )
