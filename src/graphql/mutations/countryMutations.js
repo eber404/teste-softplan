@@ -1,8 +1,5 @@
 import { gql } from '@apollo/client'
-import {
-  FIND_COUNTRY_BY_ID,
-  GET_HOME_COUNTRIES,
-} from '../queries/countryQueries'
+import { FIND_COUNTRY_BY_ID } from '../queries/countryQueries'
 
 export const UPDATE_COUNTRY = gql`
   mutation UpdateCountry(

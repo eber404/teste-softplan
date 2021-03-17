@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Main from './Main'
-import { Flex, Box } from 'reflexbox'
+import { Flex } from 'reflexbox'
 
 const Layout = (props) => {
   return (
