@@ -31,11 +31,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && start-server",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start-server": "node server/index.js",
-    "heroku-postbuild": "start-server"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
